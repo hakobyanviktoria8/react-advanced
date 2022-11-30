@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import Count from './Count';
+import Count from './Examples/Count';
 import "./../util/styles/Example.css"
+import Boxs from './Examples/Boxs';
 
 function Example() {
     const [arr,setArr]= useState(["item 0", "item 1"]);
@@ -21,6 +22,7 @@ function Example() {
 
   return (
     <div>
+        <hr />
         <div className='countWrapper'>
             <button onClick={subCount}>-</button>
             <Count count={count}/>
@@ -29,6 +31,9 @@ function Example() {
         <hr/>
         <button onClick={handleClick}>Add item</button>
         {arr && arr.map((x, idx)=><p key={idx}>{x}</p>)}
+        <hr/>
+        <Boxs />
+        <hr />
     </div>
   )
 }
