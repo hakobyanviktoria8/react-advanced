@@ -1,0 +1,28 @@
+.searchWrapper {
+    margin: 20px auto;
+}
+
+.searchWrapper > input {
+    width: 300px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 20px 0 0 20px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px #d2cece;
+}
+
+.searchWrapper > button {
+    width: 100px;
+    height: 40px;
+    border-radius: 0 20px 20px 0;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px #d2cece;
+}
+
+.searchWrapper > .active {
+    cursor: pointer;
+    background: gray;
+    color: white;
+}
