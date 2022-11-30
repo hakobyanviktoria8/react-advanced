@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Box({bool, id, handleClick}) {
+function Box({bool, handleClick}) {
   return (
     <div 
-        onClick={()=>handleClick(id)} 
+        onClick={handleClick} 
         style={{backgroundColor: bool ? "red" : ""}}
     />
   )
