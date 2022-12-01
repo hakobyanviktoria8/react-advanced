@@ -1,0 +1,4 @@
+.LayoutChild {
+    min-height: calc(100vh - 160px);
+    padding: 30px 20px;
+}

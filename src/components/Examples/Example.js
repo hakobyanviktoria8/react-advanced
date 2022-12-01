@@ -6,17 +6,15 @@ import AddItem from './AddItem';
 import Layout from '../Layout';
 
 function Example() {
-       
-
   return (
     <Layout>
-        <hr />
+      <div className='Example'>
         <Count />
         <hr/>
         <AddItem />
         <hr/>
         <Boxs />
-        <hr />
+      </div>
     </Layout>
   )
 }

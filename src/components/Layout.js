@@ -1,13 +1,17 @@
 import React from 'react'
+import Footer from './Footer'
 import NavBar from './NavBar'
+import "./../util/styles/Layout.css"
 
 function Layout({children}) {
   return (
-    <div>
+    <>
         <NavBar />
-        {children}
-        <p>Footer</p>
-    </div>
+        <div className='LayoutChild'>
+          {children}
+        </div>
+        <Footer />
+    </>
   )
 }
 

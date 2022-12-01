@@ -13,14 +13,19 @@ function Items() {
   },[])
     
   return (
-    <div>
-        <h1>Items list</h1>
-        {!items && <h2>Loading...</h2>}
-        <div className='itemsWrapper'>
-            {items && items.map(item => 
-                <Item key= {item.id} item = {item} />
-            )}
-        </div>
+    <div className='Items'>
+        {!items ?
+         <h2>Loading...</h2>
+         : 
+         <>
+            <h1>Items list</h1>
+            <div className='itemsWrapper'>
+              {items && items.map(item => 
+                  <Item key= {item.id} item = {item} />
+              )}
+            </div>
+         </>
+         }
     </div>
   )
 }
