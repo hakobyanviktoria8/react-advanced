@@ -1,6 +1,6 @@
 import React from 'react'
 import Search from './Search'
-import "./../util/styles/NavBar.css"
+import "./../../util/styles/NavBar.css"
 import { Link } from 'react-router-dom'
 
 function NavBar() {
@@ -8,8 +8,8 @@ function NavBar() {
     <div className='NavBar'>
       <Link to="/">Logo</Link>
       <Search />
-      <Link to="/examples">Examples</Link>
-      <Link to="/login">Login</Link>
+      <Link to="/games">Games</Link>
+      <Link to="/signup">Signup</Link>
     </div>
   )
 }

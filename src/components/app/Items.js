@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import "./../util/styles/Items.css";
+import "./../../util/styles/Items.css";
 import Item from './Item';
 
 function Items() {
@@ -7,9 +7,9 @@ function Items() {
 
   useEffect(() => {
     fetch("https://api.github.com/users")
-          .then((response) => response.json())
-          .then((data) => setItems(data))
-          .catch(err => console.log(err))
+      .then((response) => response.json())
+      .then((data) => setItems(data))
+      .catch(err => console.log(err))
   },[])
     
   return (

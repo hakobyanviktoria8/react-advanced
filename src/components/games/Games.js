@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Count from './Count';
-import "./../../util/styles/Example.css"
+import "./../../util/styles/Games.css"
 import Boxs from './Boxs';
 import AddItem from './AddItem';
-import Layout from '../Layout';
+import Layout from '../layout/Layout';
 
-function Example() {
+function Games() {
   return (
     <Layout>
-      <div className='Example'>
+      <div className='Games'>
         <Count />
         <hr/>
         <AddItem />
@@ -19,4 +19,4 @@ function Example() {
   )
 }
 
-export default Example
+export default Games

@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import Example from './components/Examples/Example';
-import Login from './components/Login';
+import Games from './components/games/Games';
 import { Route, Routes } from 'react-router';
+import Signup from './components/signup/Signup';
+import Login from './components/login/Login';
+import App from './components/app/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="examples" element={<Example />} />
+        <Route path="games" element={<Games />} />
+        <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
