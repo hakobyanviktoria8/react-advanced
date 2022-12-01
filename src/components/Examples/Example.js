@@ -3,12 +3,13 @@ import Count from './Count';
 import "./../../util/styles/Example.css"
 import Boxs from './Boxs';
 import AddItem from './AddItem';
+import Layout from '../Layout';
 
 function Example() {
        
 
   return (
-    <div>
+    <Layout>
         <hr />
         <Count />
         <hr/>
@@ -16,7 +17,7 @@ function Example() {
         <hr/>
         <Boxs />
         <hr />
-    </div>
+    </Layout>
   )
 }
 

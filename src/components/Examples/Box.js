@@ -4,7 +4,7 @@ function Box({bool, handleClick}) {
   return (
     <div 
         onClick={handleClick} 
-        style={{backgroundColor: bool ? "red" : ""}}
+        style={{backgroundColor: bool && "rgb(187 184 184)"}}
     />
   )
 }

@@ -3,7 +3,7 @@ import "./../util/styles/Items.css";
 import Item from './Item';
 
 function Items() {
-    const [items, setItems] = useState(null);
+  const [items, setItems] = useState(null);
 
   useEffect(() => {
     fetch("https://api.github.com/users")

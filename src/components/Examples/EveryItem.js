@@ -8,7 +8,7 @@ function EveryItem({handleDelete, idx, every}) {
     }
    
   return (
-    <div style={{background: idx % 2 === 0 ? "gray" : "red"}}> 
+    <div style={{background: idx % 2 === 0 ? "gray" : "#f2f2f2"}}> 
         <input 
             type="checkbox" 
             checked={check}

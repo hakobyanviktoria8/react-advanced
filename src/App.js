@@ -1,18 +1,13 @@
 import './App.css';
-import Example from './components/Examples/Example';
 import Items from './components/Items';
+import Layout from './components/Layout';
 import NavBar from './components/NavBar';
-import Search from './components/Search';
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Search />
-      <Example />
+    <Layout>
       <Items />
-
-    </div>
+    </Layout>
   );
 }
 
