@@ -10,6 +10,10 @@ function Search() {
 
     const handleClick = () => {
         console.log(searchValue);
+        fetch(`https://api.github.com/users/${searchValue}`)
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch(err => console.log(err))
     }
 
   return (
@@ -24,7 +28,9 @@ function Search() {
             className={searchValue && "active"}
             disabled={!searchValue}
             onClick={handleClick}
-        >Search</button>  
+        >
+            Search
+        </button>  
     </div>
   )
 }

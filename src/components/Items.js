@@ -8,9 +8,7 @@ function Items() {
   useEffect(() => {
     fetch("https://api.github.com/users")
           .then((response) => response.json())
-          .then((data) => setTimeout(()=>{
-              setItems(data)
-          }, 1000))
+          .then((data) => setItems(data))
           .catch(err => console.log(err))
   },[])
     
