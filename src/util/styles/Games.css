@@ -1,3 +1,30 @@
+.Games {
+    display: flex;
+}
+
+.Games > .leftSide {
+    width: 20%;
+    padding: 20px;
+    background: #f6f6f6;
+    height: calc(100vh - 160px);
+}
+
+.Games > .leftSide > a {
+    display: block;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.Games > .leftSide > a .activ {
+    text-decoration: underline;
+}
+
+.Games > .rightSide {
+    width: 80%;
+    padding: 20px;
+}
 .countWrapper {
     display: flex;
     justify-content: center;
@@ -41,7 +68,7 @@
     margin: 20px auto;
 }
 
-.addItem > button, .Games > button {
+.addItem > button, .Games .rightSide .btnToggle {
     width: 200px;
     height: 40px;
     margin: 0 auto;
@@ -77,4 +104,25 @@
     height: 80px;
     border: 1px solid gray;
     margin: 10px;
+}
+
+/* TextEditor */
+.TextEditor > button {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+.TextEditor textarea{
+    margin: 10px;
+    width: 94%;
+    height: 100px;
+    padding: 10px;
+}
+
+.TextEditor > .bold {
+    font-weight: 600;
+}
+
+.TextEditor > .italic {
+   font-style: italic;
 }
