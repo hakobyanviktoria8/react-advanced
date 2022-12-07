@@ -27,7 +27,7 @@ function Login() {
 
   return (
     <Layout>
-    <h2>Login</h2>
+        <h2>Login</h2>
         <div className='Login'>
             <form onSubmit={handelSubmit}>
                 <Input

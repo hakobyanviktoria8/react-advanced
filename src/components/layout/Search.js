@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { DataContext } from '../../App';
 import "./../../util/styles/Search.css"
 
 function Search() {
     const [searchValue, setSearchValue]= useState("");
+    const [data, setData] = useContext(DataContext)
 
     const handleChange = (e) => {
         setSearchValue(e.target.value)
     }
 
     const handleClick = () => {
-        console.log(searchValue);
         fetch(`https://api.github.com/users/${searchValue}`)
           .then((response) => response.json())
-          .then((data) => console.log(data))
+          .then((data) => setData([data]))
           .catch(err => console.log(err))
     }
 
