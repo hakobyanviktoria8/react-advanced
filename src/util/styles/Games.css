@@ -17,12 +17,13 @@
     font-size: 30px;
     justify-content: center;
     margin: 10px;
+    border: 2px solid #d2cece;
 }
 
-.countWrapper > div {
+.countWrapper > .count {
     width: 80px;
     height: 80px;
-    border: 1px solid;
+    border: 2px solid #d2cece;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +34,6 @@
     position: absolute;
     z-index: -1;
     top: 20px;
-    border: 2px solid black;
 }
 
 /* addItem */
@@ -41,7 +41,7 @@
     margin: 20px auto;
 }
 
-.addItem > button {
+.addItem > button, .Games > button {
     width: 200px;
     height: 40px;
     margin: 0 auto;

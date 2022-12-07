@@ -1,9 +1,9 @@
 import React from 'react'
 import "./../../util/styles/Footer.css"
 
-function Footer() {
+function Footer({mode}) {
   return (
-    <div className='footer'>Footer</div>
+    <div className={mode ? "dark footer" : "footer"}>Footer</div>
   )
 }
 

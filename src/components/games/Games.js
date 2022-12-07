@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Count from './Count';
 import "./../../util/styles/Games.css"
 import Boxs from './Boxs';
@@ -7,10 +7,14 @@ import Layout from '../layout/Layout';
 import WindowWidth from './WindowWidth';
 
 function Games() {
+  const [show, setShow] = useState(true)
+
   return (
     <Layout>
       <div className='Games'>
-        <WindowWidth />
+      <button onClick={()=>setShow(!show)}>Toggle</button>
+
+      {show && <WindowWidth />}
         <hr />
         <Count />
         <hr/>

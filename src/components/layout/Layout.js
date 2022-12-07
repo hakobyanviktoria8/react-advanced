@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from './Footer'
 import NavBar from './NavBar'
 import "./../../util/styles/Layout.css"
 
 function Layout({children}) {
+  const [mode, setMode] = useState(false)
+
   return (
     <>
-        <NavBar />
-        <div className='LayoutChild'>
+        <NavBar mode={mode} toggleMode={() => setMode(!mode)}/>
+        <div  className={mode ? "dark LayoutChild" : "LayoutChild"}>
           {children}
         </div>
-        <Footer />
+        <Footer mode={mode}/>
     </>
   )
 }

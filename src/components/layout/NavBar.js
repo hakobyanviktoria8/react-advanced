@@ -3,13 +3,17 @@ import Search from './Search'
 import "./../../util/styles/NavBar.css"
 import { Link } from 'react-router-dom'
 
-function NavBar() {
+function NavBar({mode, toggleMode}) {
   return (
-    <div className='NavBar'>
+    <div className={mode ? "dark NavBar" : "NavBar"}>
       <Link to="/">Logo</Link>
       <Search />
       <Link to="/games">Games</Link>
       <Link to="/signup">Signup</Link>
+      <button 
+        onClick={toggleMode} 
+        className={!mode ? "dark" : ""}
+      />
     </div>
   )
 }

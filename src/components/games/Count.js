@@ -13,7 +13,7 @@ function Count() {
   return (
     <div className='countWrapper'>
       <button onClick={subCount}>-</button>
-      <div>{count}</div>
+      <div className='count'>{count}</div>
       <button onClick={addCount}>+</button>
     </div>
   )

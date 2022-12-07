@@ -8,6 +8,10 @@ h1, h2 {
     justify-content: center;
 }
 
+.itemsWrapper > a {
+    text-decoration: none;
+}
+
 .item {
     width: 200px;
     min-height: 250px;
