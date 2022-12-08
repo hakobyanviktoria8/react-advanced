@@ -5,6 +5,7 @@ import Count from './Count';
 import AddItem from './AddItem';
 import Boxs from './Boxs';
 import TextEditor from './TextEditor';
+import Tenzies from './Tenzies';
 
 function Game() {
     const [show, setShow] = useState(true)
@@ -13,6 +14,7 @@ function Game() {
   return (
     <div>
         {!params && <h2>Select your prifer Game</h2>}
+        {params === "tenzies" && <Tenzies />}
         {params === "resize" && 
             <>
                 <button 
