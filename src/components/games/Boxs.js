@@ -5,6 +5,7 @@ import BoxLocalState from './BoxLocalState'
 
 function Boxs() {
   const [squares, setSquares] = useState(boxData)
+  const [current, setCurrent] = useState(null)
 
   const toggel = (id) => {
     setSquares(prev => prev.map(item =>
@@ -28,6 +29,19 @@ function Boxs() {
               handleClick={() => toggel(box.id)}
             />
           )}
+      </div>
+
+      <hr/>
+      {/* map arr and take item ID current version, then check item.id=== current => :)*/}
+      <div className='findId'>
+        {
+          boxData.map(x=>
+            <button 
+              className={x.id === current ? "active" : ""}
+              onClick={()=> setCurrent(x.id)}
+            >{x.id}</button>
+          )
+        }
       </div>
     </>
   )
