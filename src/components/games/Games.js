@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./../../util/styles/Games.css"
 import Layout from '../layout/Layout';
-import { Link, useParams } from 'react-router-dom';
 import Game from './Game';
+import { linkData } from './constants';
+import NavLink from './NavLink';
 
 function Games() {
-  const { params } = useParams();
-
-  const handleSelect = (e) => {  
-    e.target.className = e.target.href.split("/").slice(-1)[0] === params ? "active" : ""   
+  const [active, setActive] = useState(null);
+  
+  const handleClick = (id) => {  
+    setActive(id);
   }
 
   return (
     <Layout>
       <div className='Games'>
         <div className='leftSide'>
-          <Link to={"/games/resize"} onClick={handleSelect}>Resize</Link>
-          <Link to={"/games/count"} onClick={handleSelect}>Count</Link>
-          <Link to={"/games/addItem"} onClick={handleSelect}>AddItem</Link>
-          <Link to={"/games/boxs"} onClick={handleSelect}>Boxs</Link>
-          <Link to={"/games/textEditor"} onClick={handleSelect}>TextEditor</Link>
+          {
+            linkData.map(item => 
+              <NavLink 
+                key={item.id}
+                to={item.to} 
+                title={item.title} 
+                handleClick={() => handleClick(item.id)}
+                isActive={active === item.id}
+              />
+            )
+          }
         </div>
         <div className='rightSide'>
           <Game />

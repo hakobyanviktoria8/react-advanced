@@ -17,8 +17,9 @@
     font-weight: 600;
 }
 
-.Games > .leftSide > a .activ {
+.Games > .leftSide > .active {
     text-decoration: underline;
+    font-size: 22px;
 }
 
 .Games > .rightSide {
