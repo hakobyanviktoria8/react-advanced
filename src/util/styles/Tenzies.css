@@ -29,3 +29,7 @@
     width: 100px;
     height: 36px;
 }
+
+.tenziesPoints > .isChoosen { 
+    background: rgb(145, 255, 125);
+}

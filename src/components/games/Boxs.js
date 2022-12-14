@@ -37,6 +37,7 @@ function Boxs() {
         {
           boxData.map(x=>
             <button 
+              key={x.id}
               className={x.id === current ? "active" : ""}
               onClick={()=> setCurrent(x.id)}
             >{x.id}</button>

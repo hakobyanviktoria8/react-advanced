@@ -1,25 +1,79 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 import "./../../util/styles/Tenzies.css"
-import Point from './Point'
 
+const generatePoin = () => {
+  return {
+    id: nanoid(),
+    val: Math.floor(Math.random() * 9) + 1,
+    isChoosen: false,
+  }
+}
 
+const generatePointArr = () => {
+  let pointArr = [] 
+  for(let i=0; i < 10; i++) {
+    pointArr.push(generatePoin())
+  }
+  return pointArr
+}
 
 function Tenzies() {
-  const [allPoints, setAllPoints] = useState(Array.from({length: 10}, () => Math.floor(Math.random() * 9) + 1))
+  const [allPoints, setAllPoints] = useState(generatePointArr())
+  const [tenzies, setTenzies] = useState(false)
 
+  useEffect(() => {
+    const allTrue = allPoints.every(obj => obj.isChoosen)
+    const firstVal = allPoints[0].val
+    const allSameVal = allPoints.every(obj => obj.val === firstVal)
+
+    if(allSameVal && allTrue) {
+      setTenzies(true)
+    }
+  }, [allPoints])
+  
   function refreshPage() {
-    setAllPoints(Array.from({length: 10}, () => Math.floor(Math.random() * 9) + 1))
-    console.log(2222, allPoints);
+    if(!tenzies){
+      setAllPoints(prev => prev.map(obj => {
+        return obj.isChoosen ? obj : generatePoin()
+        }))
+      } else {
+      setAllPoints(generatePointArr())
+      setTenzies(false)
+    }
+  }
+  
+  const handleClick = (id) => {
+    setAllPoints(prev => prev.map(obj => {
+      return obj.id === id ? 
+      {...obj, isChoosen: !obj.isChoosen}
+      : obj
+    }))
   }
 
   return (
     <div className='Tenzies'>
+      {tenzies && <Confetti
+        width={window.innerWidth}
+        height={window.innerHeight}
+      />}
       <h2>Tenzies game</h2>
       <div className='tenziesWrapper'>
         <div className='tenziesPoints'>
-          {allPoints.map((item, idx) => <Point key={idx} item={item}/>)}
+          {allPoints.map(item => 
+            <p 
+              key={item.id}
+              className={item.isChoosen ?  "isChoosen" : ""}
+              onClick={()=>handleClick(item.id)}
+            >
+              {item.val}
+            </p>
+          )}
         </div>
-        <button onClick={refreshPage}>Roll</button> 
+        <button onClick={refreshPage}>
+          {!tenzies ? "Roll" : "New Game"}
+        </button> 
       </div>
     </div>
   )
