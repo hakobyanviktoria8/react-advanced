@@ -1,0 +1,29 @@
+.title {
+    padding: 0;
+}
+
+.postWrapper {
+    height: calc(100vh - 290px);
+    overflow: auto;
+}
+
+.post {
+    border: 2px solid greenyellow;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.postsForm {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.postsForm > input {
+    height: 32px;
+    padding: 5px;
+    margin-right: 10px;
+    width: 30%;
+}

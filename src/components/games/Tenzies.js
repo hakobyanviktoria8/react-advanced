@@ -22,10 +22,12 @@ const generatePointArr = () => {
 function Tenzies() {
   const [allPoints, setAllPoints] = useState(generatePointArr())
   const [tenzies, setTenzies] = useState(false)
+  const [arr, setArr] = useState([])
+  const [firstVal, setFirstVal] = useState(null)
 
   useEffect(() => {
     const allTrue = allPoints.every(obj => obj.isChoosen)
-    const firstVal = allPoints[0].val
+    setFirstVal(arr[0]?.val)
     const allSameVal = allPoints.every(obj => obj.val === firstVal)
 
     if(allSameVal && allTrue) {
@@ -45,8 +47,11 @@ function Tenzies() {
   }
   
   const handleClick = (id) => {
+    let curr = allPoints.find(obj => obj.id === id)
+    setArr([...arr, curr])
+
     setAllPoints(prev => prev.map(obj => {
-      return obj.id === id ? 
+      return obj.id === id && obj.val === firstVal ? 
       {...obj, isChoosen: !obj.isChoosen}
       : obj
     }))

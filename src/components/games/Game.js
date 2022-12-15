@@ -6,6 +6,7 @@ import AddItem from './AddItem';
 import Boxs from './Boxs';
 import TextEditor from './TextEditor';
 import Tenzies from './Tenzies';
+import { Posts } from './posts/Posts';
 
 function Game() {
     const [show, setShow] = useState(true)
@@ -28,6 +29,7 @@ function Game() {
          {params === "addItem" && <AddItem />}               
          {params === "boxs" && <Boxs />}               
          {params === "textEditor" && <TextEditor />}               
+         {params === "posts" && <Posts />}               
     </div>
   )
 }

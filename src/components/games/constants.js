@@ -35,4 +35,10 @@ export const linkData = [
       title: "TextEditor",
       isActive: false,
     },
+    {
+      id: 6,
+      to: "/games/posts",
+      title: "Posts",
+      isActive: false,
+    },
   ]
