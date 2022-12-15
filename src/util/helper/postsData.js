@@ -15,7 +15,3 @@ export const postsData = [
       body: 'quia et suscipit\nsuscipit recusandae consequuntur'
     }
 ]
-
-// fetch('https://jsonplaceholder.typicode.com/posts')
-  // .then(response => response.json())
-  // .then(json => console.log(json))

@@ -1,3 +1,14 @@
+.titleSearch {
+    display: flex;
+    justify-content: space-around;
+}
+
+.titleSearch > div > input {
+    width: 200px;
+    padding: 0 10px;
+    height: 32px;
+}
+
 .title {
     padding: 0;
 }
@@ -26,4 +37,14 @@
     padding: 5px;
     margin-right: 10px;
     width: 30%;
+}
+
+.formWrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.formWrapper > select {
+    margin: 10px;
+    width: 120px;
 }

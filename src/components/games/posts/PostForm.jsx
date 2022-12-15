@@ -18,8 +18,6 @@ export const PostForm = ({addPosts}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // setPosts([...posts, {...postVal, id: nanoid()}])
-        // callback method
         const newPost = {
             ...postVal,
             id: nanoid()

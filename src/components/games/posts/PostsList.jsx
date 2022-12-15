@@ -8,7 +8,7 @@ export const PostsList = ({posts, handleDelPost}) => {
         {posts?.map((post, idx) => 
         <div key={post?.id} className={styles.post}>
             <div>
-                <h3>{idx+1}. {post?.title}</h3>
+                <h3>{post.id.length > 5 ? idx+1 : post.id}. {post?.title}</h3>
                 <p>{post?.body}</p>
             </div>
             <Button onClick={() => handleDelPost(post.id)}>Delete</Button>

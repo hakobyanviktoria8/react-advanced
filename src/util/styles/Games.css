@@ -3,10 +3,21 @@
 }
 
 .Games > .leftSide {
-    width: 20%;
+    width: 18%;
     padding: 20px;
     background: #f6f6f6;
     height: calc(100vh - 160px);
+}
+
+.Games > .leftSide > button {
+    float: right;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 
 .Games > .leftSide > a {
