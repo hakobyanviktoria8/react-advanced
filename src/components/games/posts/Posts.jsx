@@ -37,6 +37,14 @@ export const Posts = () => {
     .then(data => setPosts([data]))
   }
 
+  const handleChangeSearchId = (e) => {
+    if(isNaN(e.target.value)) {
+      return false
+    } else {
+      setSearchVal(e.target.value)
+    }
+  }
+
   return (
     <div>
       <div className={styles.titleSearch}>
@@ -45,9 +53,11 @@ export const Posts = () => {
           <input 
             placeholder='Search post with id...'
             value={searchVal} 
-            onChange={(e) => setSearchVal(e.target.value)}
+            onChange={handleChangeSearchId}
+            pattern="[0-9.]+"
+            type="text"
           />
-          <Button onClick={handleSearchPost}>Search</Button>
+          <Button disabled={!searchVal} onClick={handleSearchPost}>Search</Button>
         </div>
       </div>
       <div className={styles.formWrapper}>
