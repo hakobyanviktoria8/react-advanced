@@ -7,6 +7,7 @@ import Items from './components/items/Items';
 import Games from './components/games/Games';
 import Signup from './components/signup/Signup';
 import Login from './components/login/Login';
+import { Posts } from "./components/games/posts/Posts";
 
 export const DataContext = createContext();
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Items />} />
           <Route path="games" element={<Games />}/>
           <Route path="games/:params" element={<Games />}/>
+          <Route path="posts" element={<Posts />} />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
         </Routes>

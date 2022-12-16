@@ -1,21 +1,6 @@
-.titleSearch {
-    display: flex;
-    justify-content: space-around;
-}
-
-.titleSearch > div > input {
-    width: 200px;
-    padding: 0 10px;
-    height: 32px;
-}
-
-.title {
-    padding: 0;
-}
-
 .postWrapper {
-    height: calc(100vh - 290px);
     overflow: auto;
+    padding: 0 20px;   
 }
 
 .post {
@@ -24,6 +9,7 @@
     margin: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .postsForm {
@@ -42,9 +28,21 @@
 .formWrapper {
     display: flex;
     justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .formWrapper > select {
     margin: 10px;
     width: 120px;
+}
+
+.formSearch {
+    margin: 10px;
+}
+
+.formSearch > input {
+    width: 200px;
+    padding: 0 10px;
+    height: 32px;
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useFetching } from '../../../util/hooks/useFetching'
+import Layout from '../../layout/Layout'
 import { Button } from '../../UI/button/Button'
 import styles from "./../../../util/styles/Posts.module.css"
 import { PostForm } from './PostForm'
@@ -12,12 +13,14 @@ export const Posts = () => {
   const [posts, setPosts] = useState(null)
   const [sortVal, setSortVal] = useState("")
   const [searchVal, setSearchVal] = useState("")
+  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(10)
 
   const [fetchPosts, loading, postError] = useFetching(async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
     if(response.status === 200) {
       const data = await response.json();
-      setPosts(data?.slice(0,10))
+      setPosts(data)
     } else {
       setPosts(null)
     }
@@ -59,10 +62,11 @@ export const Posts = () => {
   }
 
   return (
-    <div>
-      <div className={styles.titleSearch}>
-        <h2 className={styles.title}>Posts</h2>
-        <div>
+    <Layout>
+      <div className={styles.formWrapper}>
+        <PostForm addPosts={addPosts}/>
+
+        <div className={styles.formSearch}>
           <input 
             placeholder='Search post with id...'
             value={searchVal} 
@@ -72,9 +76,6 @@ export const Posts = () => {
           />
           <Button disabled={!searchVal} onClick={handleSearchPost}>Search</Button>
         </div>
-      </div>
-      <div className={styles.formWrapper}>
-        <PostForm addPosts={addPosts}/>
 
         <SelectSortPosts 
           sortVal={sortVal} 
@@ -87,6 +88,6 @@ export const Posts = () => {
             :
             <PostsList posts={posts} handleDelPost={handleDelPost}/>   
       }
-    </div>
+    </Layout>
   )
 }

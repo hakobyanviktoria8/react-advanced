@@ -9,6 +9,7 @@ function NavBar({mode, toggleMode}) {
       <Link to="/">Logo</Link>
       <Search />
       <Link to="/games">Games</Link>
+      <Link to="/posts">Posts</Link>
       <Link to="/signup">Signup</Link>
       <button 
         onClick={toggleMode} 
