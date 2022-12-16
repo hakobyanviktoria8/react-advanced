@@ -7,7 +7,7 @@ import Items from './components/items/Items';
 import Games from './components/games/Games';
 import Signup from './components/signup/Signup';
 import Login from './components/login/Login';
-import { Posts } from "./components/games/posts/Posts";
+import { Posts } from "./components/posts/Posts";
 
 export const DataContext = createContext();
 

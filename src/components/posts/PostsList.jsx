@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '../../UI/button/Button'
-import styles from "./../../../util/styles/Posts.module.css"
+import { Button } from '../UI/button/Button'
+import styles from "./../../util/styles/Posts.module.css"
 
 export const PostsList = ({posts, handleDelPost}) => {
   return (

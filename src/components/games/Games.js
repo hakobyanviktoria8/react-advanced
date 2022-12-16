@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./../../util/styles/Games.css"
 import Layout from '../layout/Layout';
 import Game from './Game';
-import { linkData } from './constants';
+import { linkData } from '../../util/constant/links';
 import NavLink from './NavLink';
 import { Button } from '../UI/button/Button';
 

@@ -32,9 +32,10 @@
     padding-bottom: 10px;
 }
 
-.formWrapper > select {
+.formWrapper > div > select {
     margin: 10px;
     width: 120px;
+    padding: 5px;
 }
 
 .formSearch {

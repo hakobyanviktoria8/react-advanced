@@ -1,26 +1,34 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { useFetching } from '../../../util/hooks/useFetching'
-import Layout from '../../layout/Layout'
-import { Button } from '../../UI/button/Button'
-import styles from "./../../../util/styles/Posts.module.css"
+import { limitOptions } from '../../util/constant/postsLimit'
+import { sortOptions } from '../../util/constant/postsSort'
+import { useFetching } from '../../util/hooks/useFetching'
+import Layout from '../layout/Layout'
+import { Button } from '../UI/button/Button'
+import styles from "./../../util/styles/Posts.module.css"
+import { Pagination } from './Pagination'
 import { PostForm } from './PostForm'
 import { PostsList } from './PostsList'
-import { SelectSortPosts } from './SelectSortPosts'
+import { SelectPosts } from './SelectPosts'
 
 export const Posts = () => {
   const [posts, setPosts] = useState(null)
   const [sortVal, setSortVal] = useState("")
   const [searchVal, setSearchVal] = useState("")
+
+  const [totalPage, setTotalPage] = useState(0)
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState(10)
+  const totalCount = 100
 
   const [fetchPosts, loading, postError] = useFetching(async () => {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
     if(response.status === 200) {
       const data = await response.json();
       setPosts(data)
+      console.log(limit);
+      setTotalPage(Math.ceil(totalCount/limit))
     } else {
       setPosts(null)
     }
@@ -28,7 +36,7 @@ export const Posts = () => {
 
   useEffect(()=> {
     fetchPosts()
-  } ,[])
+  } ,[limit])
     
   const addPosts = (newPostItem) => {
     setPosts([...posts, newPostItem])
@@ -41,6 +49,11 @@ export const Posts = () => {
   const handleSortPost = (sort) => {
     setSortVal(sort);
     setPosts([...posts].sort((a, b) => a[sortVal]?.localeCompare(b[sortVal])))
+  }
+
+  const handleLimitPost = (sort) => {
+    setLimit(sort)
+    fetchPosts()
   }
 
   const [handleSearchPost] = useFetching(async () => {
@@ -77,17 +90,26 @@ export const Posts = () => {
           <Button disabled={!searchVal} onClick={handleSearchPost}>Search</Button>
         </div>
 
-        <SelectSortPosts 
-          sortVal={sortVal} 
-          onChange = {handleSortPost}
-        />
+        <div>
+          <SelectPosts 
+            val={sortVal} 
+            onChange = {handleSortPost}
+            optins={sortOptions}
+          />
+          <SelectPosts 
+            val={limit} 
+            onChange={handleLimitPost}
+            optins={limitOptions}
+          />
+        </div>
       </div>
       {
-          loading ? 
-            <h2>Loading...</h2>
-            :
-            <PostsList posts={posts} handleDelPost={handleDelPost}/>   
+        loading ? 
+          <h2>Loading...</h2>
+          :
+          <PostsList posts={posts} handleDelPost={handleDelPost}/>   
       }
+      <Pagination totalPage={totalPage} /> 
     </Layout>
   )
 }

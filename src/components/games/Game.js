@@ -6,7 +6,7 @@ import AddItem from './AddItem';
 import Boxs from './Boxs';
 import TextEditor from './TextEditor';
 import Tenzies from './Tenzies';
-import { Posts } from './posts/Posts';
+import { Posts } from '../posts/Posts';
 
 function Game() {
     const [show, setShow] = useState(true)

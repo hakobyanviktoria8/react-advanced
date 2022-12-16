@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { nanoid } from 'nanoid'
-import styles from "./../../../util/styles/Posts.module.css"
-import { Button } from '../../UI/button/Button'
+import styles from "./../../util/styles/Posts.module.css"
+import { Button } from '../UI/button/Button'
 
 export const PostForm = ({addPosts}) => {
     const [postVal, setPostVal] = useState({title: "", body: ""})
