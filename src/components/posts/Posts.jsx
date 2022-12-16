@@ -27,7 +27,6 @@ export const Posts = () => {
     if(response.status === 200) {
       const data = await response.json();
       setPosts(data)
-      console.log(limit);
       setTotalPage(Math.ceil(totalCount/limit))
     } else {
       setPosts(null)

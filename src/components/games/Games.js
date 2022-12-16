@@ -11,12 +11,10 @@ function Games() {
   const [showMenu, setShowMenu] = useState(false);
   
   const handleClick = (id) => { 
-    console.log("handleClick Game"); 
     setActive(id);
   }
 
   const handleClickShow = () => {
-    console.log("handleClickShow Game")
     setShowMenu(!showMenu)
   }
 
