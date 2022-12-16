@@ -11,11 +11,16 @@ export const Posts = () => {
   const [posts, setPosts] = useState(null)
   const [sortVal, setSortVal] = useState("")
   const [searchVal, setSearchVal] = useState("")
+  const [loading, setLoading] = useState(false)
 
   useEffect(()=> {
+    setLoading(true)
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
-    .then(data => setPosts(data?.slice(0,10)))
+    .then(data => {
+      setPosts(data?.slice(0,10));
+      setLoading(false)
+    })
   } ,[])
     
   const addPosts = (newPostItem) => {
@@ -31,10 +36,20 @@ export const Posts = () => {
     setPosts([...posts].sort((a, b) => a[sortVal]?.localeCompare(b[sortVal])))
   }
 
-  const handleSearchPost = () => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${searchVal}`)
-    .then(response => response.json())
-    .then(data => setPosts([data]))
+  const handleSearchPost = async () => {
+    try {
+      setLoading(true)
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${searchVal}`);
+      if(response.status === 200) {
+        const data = await response.json();
+        setPosts([data])
+        setLoading(false)
+      } else {
+        setPosts(null)
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const handleChangeSearchId = (e) => {
@@ -69,9 +84,10 @@ export const Posts = () => {
         />
       </div>
       {
-        !posts?.length ? <h2>Post not found...!</h2>
-        :
-        <PostsList posts={posts} handleDelPost={handleDelPost}/>   
+          loading ? 
+            <h2>Loading...</h2>
+            :
+            <PostsList posts={posts} handleDelPost={handleDelPost}/>   
       }
     </div>
   )
