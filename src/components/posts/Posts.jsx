@@ -35,7 +35,7 @@ export const Posts = () => {
 
   useEffect(()=> {
     fetchPosts()
-  } ,[limit])
+  } ,[limit, currentPage])
     
   const addPosts = (newPostItem) => {
     setPosts([...posts, newPostItem])
@@ -49,6 +49,7 @@ export const Posts = () => {
     setSortVal(sort);
     setPosts([...posts].sort((a, b) => a[sortVal]?.localeCompare(b[sortVal])))
   }
+  
   const handleLimitPost = (limit) => {
     setLimit(limit)
     fetchPosts()
@@ -70,6 +71,10 @@ export const Posts = () => {
     } else {
       setSearchVal(e.target.value)
     }
+  }
+
+  const handleChangePage = (page) => {
+    setCurrentPage(page)
   }
 
   return (
@@ -108,10 +113,14 @@ export const Posts = () => {
           <PostsList 
             posts={posts} 
             handleDelPost={handleDelPost} 
-            currentPage={currentPage} 
-            setCurrentPage={searchVal} />   
+          />   
       }
-      <Pagination totalPage={totalPage} /> 
+
+      <Pagination 
+        totalPage={totalPage} 
+        currentPage={currentPage} 
+        handleChangePage={handleChangePage}
+      /> 
     </Layout>
   )
 }

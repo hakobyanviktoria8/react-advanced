@@ -1,6 +1,6 @@
 import "./util/styles/App.css";
 import { BrowserRouter } from 'react-router-dom';
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import { useState, createContext } from "react";
 
 import Items from './components/items/Items';
@@ -24,6 +24,7 @@ function App() {
           <Route path="posts" element={<Posts />} />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
     </DataContext.Provider>

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./../../util/styles/Pagination.css"
 
-export const Pagination = ({totalPage, currentPage, setCurrentPage}) => {
+export const Pagination = ({totalPage, currentPage, handleChangePage}) => {
     const pageArr = Array.from({length: totalPage}, (_, i) => i + 1)
 
     return (
@@ -9,7 +9,7 @@ export const Pagination = ({totalPage, currentPage, setCurrentPage}) => {
         {pageArr.map(page => 
           <button 
             key={page}
-            onClick={()=> setCurrentPage(page)}
+            onClick={()=> handleChangePage(page)}
             className={page === currentPage ? "active" : ""}
           >
             {page}
