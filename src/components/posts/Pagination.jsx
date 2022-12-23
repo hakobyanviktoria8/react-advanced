@@ -1,12 +1,19 @@
 import React from 'react'
 import "./../../util/styles/Pagination.css"
 
-export const Pagination = ({totalPage}) => {
+export const Pagination = ({totalPage, currentPage, setCurrentPage}) => {
     const pageArr = Array.from({length: totalPage}, (_, i) => i + 1)
-    console.log(totalPage, pageArr);
-  return (
+
+    return (
     <div className="pagination">
-        {pageArr.map(page => <button key={page}>{page}</button>)}
+        {pageArr.map(page => 
+          <button 
+            key={page}
+            onClick={()=> setCurrentPage(page)}
+            className={page === currentPage ? "active" : ""}
+          >
+            {page}
+          </button>)}
     </div>
   )
 }

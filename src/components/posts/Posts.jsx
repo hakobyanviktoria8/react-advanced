@@ -18,12 +18,12 @@ export const Posts = () => {
   const [searchVal, setSearchVal] = useState("")
 
   const [totalPage, setTotalPage] = useState(0)
-  const [page, setPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1)
   const [limit, setLimit] = useState(10)
   const totalCount = 100
 
   const [fetchPosts, loading, postError] = useFetching(async () => {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${currentPage}`)
     if(response.status === 200) {
       const data = await response.json();
       setPosts(data)
@@ -49,9 +49,8 @@ export const Posts = () => {
     setSortVal(sort);
     setPosts([...posts].sort((a, b) => a[sortVal]?.localeCompare(b[sortVal])))
   }
-
-  const handleLimitPost = (sort) => {
-    setLimit(sort)
+  const handleLimitPost = (limit) => {
+    setLimit(limit)
     fetchPosts()
   }
 
@@ -106,7 +105,11 @@ export const Posts = () => {
         loading ? 
           <h2>Loading...</h2>
           :
-          <PostsList posts={posts} handleDelPost={handleDelPost}/>   
+          <PostsList 
+            posts={posts} 
+            handleDelPost={handleDelPost} 
+            currentPage={currentPage} 
+            setCurrentPage={searchVal} />   
       }
       <Pagination totalPage={totalPage} /> 
     </Layout>

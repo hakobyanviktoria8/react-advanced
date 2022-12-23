@@ -22,7 +22,6 @@ function Login() {
 
     const handelSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
     }
 
   return (
