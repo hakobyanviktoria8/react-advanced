@@ -3,6 +3,7 @@ import { DataContext } from '../../App';
 import Layout from '../layout/Layout';
 import "./../../util/styles/Items.css";
 import Item from './Item';
+import Search from "./Search";
 
 function Items({mode}) {
   const [data, setData] = useContext(DataContext)
@@ -21,7 +22,8 @@ function Items({mode}) {
           <h2>Loading...</h2>
           : 
           <>
-              <h1>Items list</h1>
+              <h1>Users list</h1>
+              <Search />
               <div className='itemsWrapper'>
                 {data && data.map(item => 
                     <Item key= {item.id} item = {item} />

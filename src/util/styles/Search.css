@@ -1,10 +1,12 @@
 .searchWrapper {
     box-shadow: 0 0 3px #d2cece;
     border-radius: 20px;
+    width: 500px;
+    margin: 20px auto;
 }
 
 .searchWrapper > input {
-    width: 300px;
+    width: 400px;
     height: 40px;
     padding: 0 16px;
     border-radius: 20px 0 0 20px;

@@ -8,6 +8,8 @@ import Games from './components/games/Games';
 import Signup from './components/signup/Signup';
 import Login from './components/login/Login';
 import { Posts } from "./components/posts/Posts";
+import { User } from "./components/items/User";
+import { Home } from "./components/home/Home";
 
 export const DataContext = createContext();
 
@@ -18,7 +20,9 @@ function App() {
     <DataContext.Provider value={[data, setData]}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Items />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<Items />} />
+          <Route path="/users/:id" element={<User />} />
           <Route path="games" element={<Games />}/>
           <Route path="games/:params" element={<Games />}/>
           <Route path="posts" element={<Posts />} />

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function Item({item}) {
   const [data, setData] = useState(null);
   const [showMore, setShowMore] = useState(false)
+  const navigate = useNavigate();
 
   const handleMoreData = () => {
     setShowMore(prev => !prev)
@@ -22,6 +24,7 @@ function Item({item}) {
             <p>{data?.name}</p>
             <p>Followers: {data?.followers}</p>
             <p>Following: {data?.following}</p>
+            <button onClick={()=> navigate(`/users/${data.id}`)}>See all info</button>
           </>
         }
     </div>
