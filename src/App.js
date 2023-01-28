@@ -10,6 +10,7 @@ import Login from './components/login/Login';
 import { Posts } from "./components/posts/Posts";
 import { User } from "./components/items/User";
 import { Home } from "./components/home/Home";
+import { About } from "./components/about";
 
 export const DataContext = createContext();
 
@@ -29,6 +30,9 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/about" element={<About />}>
+              <Route path="history" element="This is history component"/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </DataContext.Provider>

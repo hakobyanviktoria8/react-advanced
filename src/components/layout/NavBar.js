@@ -10,6 +10,7 @@ function NavBar({mode, toggleMode}) {
       <Link to="/games">Games</Link>
       <Link to="/posts">Posts</Link>
       <Link to="/signup">Signup</Link>
+      <Link to="/about">About</Link>
       <button 
         onClick={toggleMode} 
         className={!mode ? "dark" : ""}
