@@ -10,7 +10,7 @@ import Login from './components/login/Login';
 import { Posts } from "./components/posts/Posts";
 import { User } from "./components/items/User";
 import { Home } from "./components/home/Home";
-import { About } from "./components/about";
+import { About } from "./components/about/About";
 
 export const DataContext = createContext();
 
